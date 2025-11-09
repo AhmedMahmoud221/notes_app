@@ -6,7 +6,7 @@ class NoteItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 20),
+      padding: const EdgeInsets.only(top: 10),
       child: Container(
         padding: const EdgeInsets.only(top: 24, bottom: 24, left: 16),
         decoration: BoxDecoration(
@@ -21,7 +21,7 @@ class NoteItem extends StatelessWidget {
               padding: const EdgeInsets.only(bottom: 16),
               child: const Text('Flutter Tips', style: TextStyle(
                 color: Colors.black,
-                fontSize: 26,
+                fontSize: 28,
               ),),
             ),
             subtitle: Padding(
