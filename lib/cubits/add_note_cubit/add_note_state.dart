@@ -1,16 +1,16 @@
 import 'package:flutter/widgets.dart';
 
 @immutable
-abstract class NotesState {}
+abstract class AddNoteState {}
 
-class NotesInitial extends NotesState {}
+class AddNoteInitial extends AddNoteState {}
 
-class NotesLoading extends NotesState {}
+class AddNoteLoading extends AddNoteState {}
 
-class NotesSuccess extends NotesState {}
+class AddNoteSuccess extends AddNoteState {}
 
-class NotesFailure extends NotesState {
+class AddNoteFailure extends AddNoteState {
   final String errMessage;
 
-  NotesFailure({required this.errMessage});
+  AddNoteFailure({required this.errMessage});
 }
