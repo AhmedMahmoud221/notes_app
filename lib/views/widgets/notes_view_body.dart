@@ -18,7 +18,8 @@ class NotesViewBody extends StatelessWidget {
             title: 'Notes',
             icon: Icons.search,
           ),
-          Expanded(child: NotesListView()),
+          Expanded(
+            child: NotesListView()),
         ],  
       ),
     );
