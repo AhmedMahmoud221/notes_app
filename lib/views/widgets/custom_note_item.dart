@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/views/edit_note_view.dart';
 
 class NoteItem extends StatelessWidget {
-  const NoteItem({super.key});
+  const NoteItem({super.key, required this.note});
 
+  final NoteModel note;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -19,7 +21,7 @@ class NoteItem extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.only(top: 24, bottom: 24, left: 16),
           decoration: BoxDecoration(
-            color: const Color.fromARGB(255, 253, 199, 118),
+            color: Color(note.color),
             borderRadius: BorderRadius.circular(16),
           ),
           child: Column(
@@ -28,14 +30,18 @@ class NoteItem extends StatelessWidget {
             ListTile(
               title: Padding(
                 padding: const EdgeInsets.only(bottom: 16),
-                child: const Text('Flutter Tips', style: TextStyle(
+                child:  Text(
+                  note.title,
+                   style: const TextStyle(
                   color: Colors.black,
                   fontSize: 28,
                 ),),
               ),
               subtitle: Padding(
                 padding: const EdgeInsets.only(bottom: 16),
-                child: Text('Build your career with ahmed mahmoud', style: TextStyle(
+                child: Text(
+                  note.subTitle, 
+                  style: TextStyle(
                   color: Colors.black.withOpacity(0.5),
                   fontSize: 20,
                 ),),
@@ -49,12 +55,14 @@ class NoteItem extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.only(right: 24),
-              child: Text('May 21,2022', style: TextStyle(
+              child: Text(
+                note.data, 
+                style: TextStyle(
                   fontSize: 16,
                   color:  Colors.black.withOpacity(0.5),
                   ),
                 ),
-            ),
+            ), 
             ], 
           ),
         ),
