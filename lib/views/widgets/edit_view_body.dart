@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:notes_app/constansts.dart';
 import 'package:notes_app/cubits/add_note_cubit/notes_cubit/notes_cubit.dart';
 import 'package:notes_app/models/note_model.dart';
-import 'package:notes_app/views/widgets/colors_list_view.dart';
 import 'package:notes_app/views/widgets/custom_search_app_bar.dart';
 import 'package:notes_app/views/widgets/custom_text_field.dart';
+import 'package:notes_app/views/widgets/edit_note_colors_listview.dart';
 
 class EditNoteViewBody extends StatefulWidget {
   const EditNoteViewBody({super.key, required this.note});
@@ -19,6 +18,8 @@ class EditNoteViewBody extends StatefulWidget {
 class _EditNoteViewBodyState extends State<EditNoteViewBody> {
 
   String? title, content;
+
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -64,46 +65,3 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
 
 
 
-class EditNotsColorsList extends StatefulWidget {
-  const EditNotsColorsList({super.key, required this.note});
-
-  final NoteModel note;
-
-  @override
-  State<EditNotsColorsList> createState() => _EditNotsColorsListState();
-}
-
-class _EditNotsColorsListState extends State<EditNotsColorsList> {
-
-  int currentIndex = 0;
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 35* 3,
-      child: ListView.builder(
-        itemCount: kColors.length,
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 6.0),
-            child: GestureDetector(
-              onTap: ()
-              {
-                currentIndex = index;
-                
-                widget.note.color = kColors[index].value;
-                
-                setState(() {});
-              },
-              child: ColorItem(
-                color: kColors[index],
-                isActive: currentIndex == index ,
-              ),
-            ),
-          );
-        },
-      ),
-    );
-  }
-}
